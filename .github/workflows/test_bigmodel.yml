@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: [ "self-hosted", "ragflow-test" ]
+    runs-on: [ "self-hosted", "lab_api-key" ]
     env:
       ZHIPU_AI_API_KEY: ${{ secrets.ZHIPU_AI_API_KEY }}
 
