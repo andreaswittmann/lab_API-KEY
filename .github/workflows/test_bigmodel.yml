@@ -8,7 +8,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [ "self-hosted", "ragflow-test" ]
+    env:
+      ZHIPU_AI_API_KEY: ${{ secrets.ZHIPU_AI_API_KEY }}
 
     steps:
     - name: Checkout code
@@ -25,7 +27,5 @@ jobs:
         pip install openai
 
     - name: Run BigModel API test
-      env:
-        ZHIPU_AI_API_KEY: ${{ secrets.ZHIPU_AI_API_KEY }}
       run: |
         python test_bigmodel.py
